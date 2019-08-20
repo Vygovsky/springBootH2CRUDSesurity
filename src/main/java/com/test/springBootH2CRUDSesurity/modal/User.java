@@ -7,55 +7,55 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @NotBlank(message = "Error name")
-    private String username;
-    @NotBlank(message = "Error email")
+    @NotBlank(message = "Name is mandatory")
+    private String name;
+
+    @NotBlank(message = "Email is mandatory")
     private String email;
 
-    public User(@NotBlank(message = "Error name") String username, @NotBlank(message = "Error email") String email) {
-        this.username = username;
-        this.email = email;
-    }
-
     public User() {
-
     }
 
-    public long getId() {
-        return id;
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public long getId() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "User{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
     }
 }
+
+
+
+

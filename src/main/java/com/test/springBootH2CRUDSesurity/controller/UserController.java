@@ -23,14 +23,15 @@ public class UserController {
     }
 
     @GetMapping("/singup")
-    public String singUpForm() {
-        return "add-user";
+    public String singUpForm(User user) {
+        //model.addAttribute("user", new User());
+        return "adduser";
     }
 
     @PostMapping("/adduser")
     public String addUserForm(@Valid User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "add-user";
+            return "adduser";
         }
         userCrudRepository.save(user);
         model.addAttribute("users", userCrudRepository.findAll());
@@ -46,14 +47,14 @@ public class UserController {
             throw new IllegalArgumentException("Invalid user Id : " + id);
         }*/
         model.addAttribute("user", user);
-        return "update-user";
+        return "updateuser";
     }
 
     @PostMapping("update/{id}")
     public String updateUser(@PathVariable("id") long id, @Valid User userUpdate, BindingResult result, Model model) {
         if (result.hasErrors()) {
             userUpdate.setId(id);
-            return "update-user";
+            return "updateuser";
         }
 
         userCrudRepository.save(userUpdate);
