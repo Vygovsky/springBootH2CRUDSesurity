@@ -14,23 +14,25 @@ public class User {
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @NotBlank(message = "Password is mandatory")
-    private String password;
+  /*  @NotBlank(message = "Password is mandatory")
+    private String password;*/
 
     @NotBlank(message = "Email is mandatory")
     private String email;
 
+/*
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+*/
 
     public User() {
     }
 
     public User(@NotBlank(message = "Name is mandatory") String name, @NotBlank(message = "Password is mandatory") String password, @NotBlank(message = "Email is mandatory") String email) {
         this.name = name;
-        this.password = password;
+       // this.password = password;
         this.email = email;
     }
 
@@ -50,13 +52,13 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
+/*    public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
+    }*/
 
     public String getEmail() {
         return email;
@@ -66,20 +68,20 @@ public class User {
         this.email = email;
     }
 
-    public Set<Role> getRoles() {
+  /*  public Set<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
-    }
+    }*/
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + /*password */+ '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

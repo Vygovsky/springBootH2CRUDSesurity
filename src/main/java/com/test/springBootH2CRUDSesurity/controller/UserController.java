@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -24,15 +25,15 @@ public class UserController {
 
     @GetMapping("/singup")
     public String singUpForm(User user) {
-        //model.addAttribute("user", new User());
         return "adduser";
     }
 
     @PostMapping("/adduser")
-    public String addUserForm(@Valid User user, BindingResult result, Model model) {
+    public String addUserForm(@Valid @ModelAttribute(value = "user") User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "adduser";
         }
+        //нет самый первый раз, здесь уже ты возвращаешся если ошибки есть
         userCrudRepository.save(user);
         model.addAttribute("users", userCrudRepository.findAll());
         return "index";

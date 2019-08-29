@@ -13,14 +13,10 @@
 </head>
 <body>
 <h1>Login Form</h1>
-<form th:action="@{/login}" th:object="${loginForm}" method="post">
-    <label for="username">Username </label>
-    <input type="text" id="username" name="username" autofocus="autofocus" placeholder="Username">
-
-    <label for="password">Password</label>
-    <input type="text" id="password" name="password" autofocus="autofocus" placeholder="Password"></dr>
-    <input type="submit" value="Log In"/>
-
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
 </form>
 </body>
 </html>
