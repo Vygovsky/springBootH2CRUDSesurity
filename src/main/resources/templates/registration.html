@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="../css/shards.min.css">
 </head>
 <body>
-<h1>Login Form</h1>
-<form th:action="@{/login}" method="post">
+
+
+<h1>Add user in database</h1>
+<form th:action="@{/registration}" method="post" th:object="user">
+    <td th:text="${message} ?${message}: 'UNKNOWN'" />
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
     <div><input type="submit" value="Sign In"/></div>
 </form>
-<a th:href="@{/registration}">Add New User</a>
 </body>
 </html>

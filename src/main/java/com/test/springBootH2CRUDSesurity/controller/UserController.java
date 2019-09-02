@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @PostMapping("/adduser")
-    public String addUserForm(@Valid @ModelAttribute(value = "user") User user, BindingResult result, Model model) {
+    public String addUserForm(@Valid @ModelAttribute(value = "username") User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "adduser";
         }
