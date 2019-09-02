@@ -13,11 +13,10 @@
 </head>
 
 
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
-
 <body>
+
+
+
 <div th:switch="${users}" class="container my-5">
     <div class="row">
         <div class="col-md-6">
@@ -45,8 +44,14 @@
                     </tbody>
                 </table>
             </div>
-
-            <p class="my-5"><a href="/singup" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
+            <div class="form-inline">
+            <p class="form-group mb-2"><a href="/singup" class="btn btn-primary"> <i class="fas fa-user-plus ml-2"> User</i></a>
+            </p>
+            <form th:action="@{/logout}" method="post" class="form-group mx-sm-3 mb-2">
+                <!-- <input type="submit" value="Sign Out"/>-->
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Logout</button>
+            </form>
+        </div>
         </div>
     </div>
 </div>

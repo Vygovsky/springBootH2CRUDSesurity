@@ -24,8 +24,9 @@ public class UserController {
     }
 
     @GetMapping("/singup")
-    public String singUpForm(User user) {
-        return "adduser";
+    public String singUpForm(User user, Model model) {
+        model.addAttribute("users", userCrudRepository.findAll());
+        return "index";
     }
 
     @PostMapping("/adduser")
@@ -43,10 +44,6 @@ public class UserController {
     public String updateForm(@PathVariable("id") long id, Model model) {
         User user = userCrudRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id : " + id));
-      /*  Optional<User> user = userCrudRepository.findById(id);
-        if (user.get().getId() != id) {
-            throw new IllegalArgumentException("Invalid user Id : " + id);
-        }*/
         model.addAttribute("user", user);
         return "updateuser";
     }
@@ -67,10 +64,6 @@ public class UserController {
     public String deleteUser(@PathVariable("id") long id, Model model) {
         User user = userCrudRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id : " + id));
-      /*  Optional<User> user = userCrudRepository.findById(id);
-        if (user.get().getId() != id) {
-            throw new IllegalArgumentException("Invalid user Id : " + id);
-        }*/
         userCrudRepository.delete(user);
         model.addAttribute("users", userCrudRepository.findAll());
         return "index";
