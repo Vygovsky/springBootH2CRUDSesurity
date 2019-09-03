@@ -15,11 +15,11 @@
 
 
 <h1>Add user in database</h1>
-<form th:action="@{/registration}" method="post" th:object="user">
-    <td th:text="${message} ?${message}: 'UNKNOWN'" />
+<form th:action="@{/registration}" method="post" th:object="${user}">
+    <!--<td th:text="${message}"/>-->
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
+    <div><input type="submit" value="Regist In"/></div>
 </form>
 </body>
 </html>
