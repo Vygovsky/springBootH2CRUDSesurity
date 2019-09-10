@@ -34,7 +34,6 @@ public class UserController {
         if (result.hasErrors()) {
             return "adduser";
         }
-        //нет самый первый раз, здесь уже ты возвращаешся если ошибки есть
         userCrudRepository.save(user);
         model.addAttribute("users", userCrudRepository.findAll());
         return "index";

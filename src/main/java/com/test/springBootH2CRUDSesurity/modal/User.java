@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     //  @NotBlank(message = "Name is mandatory")
+    //@NotEmpty(message = "*Please provide a username")
     private String username;
 
     // @NotBlank(message = "Password is mandatory")
