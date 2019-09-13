@@ -14,23 +14,23 @@
     <h2 class="mb-5">New User</h2>
     <div class="row">
         <div class="col-md-6">
-            <form action="#" th:action="@{/adduser}" th:object="${username}" method="post">
+            <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="name" class="col-form-label">Name</label>
-                        <input type="text" th:field="*{username}" class="form-control" id="name" placeholder="Name">
-                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{username}" class="text-danger"></span>
+                        <label for="username" class="col-form-label">Name</label>
+                        <input type="text" th:field="*{username}" class="form-control" id="username" placeholder="Name">
+                        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="email" class="col-form-label">Email</label>
                         <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email">
                         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
                     </div>
-              <!--      <div class="form-group col-md-6">
+                    <div class="form-group col-md-6">
                         <label for="password" class="col-form-label">Password</label>
                         <input type="text" th:field="*{password}" class="form-control" id="password" placeholder="Email">
                         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
-                    </div>-->
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-5">
@@ -38,6 +38,13 @@
                     </div>
                 </div>
             </form>
+
+        <!--    <h1>Form</h1>
+            <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+                <p>Id: <input type="text" th:field="*{id}" /></p>
+                <p>Message: <input type="text" th:field="*{content}" /></p>
+                <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+            </form>-->
         </div>
     </div>
 </div>

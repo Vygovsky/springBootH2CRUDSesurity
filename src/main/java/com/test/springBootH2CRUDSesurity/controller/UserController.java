@@ -23,14 +23,20 @@ public class UserController {
         this.userCrudRepository = userCrudRepository;
     }
 
-    @GetMapping("/singup")
+    @GetMapping("/")
     public String singUpForm(User user, Model model) {
         model.addAttribute("users", userCrudRepository.findAll());
         return "index";
     }
 
+    @GetMapping("/adduser")
+    public String addUserForm(User user, Model model) {
+        model.addAttribute("user", new User());
+        return "adduser";
+    }
+
     @PostMapping("/adduser")
-    public String addUserForm(@Valid @ModelAttribute(value = "username") User user, BindingResult result, Model model) {
+    public String addUserForm(@ModelAttribute User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "adduser";
         }
