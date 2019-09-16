@@ -4,6 +4,7 @@ import com.test.springBootH2CRUDSesurity.modal.Role;
 import com.test.springBootH2CRUDSesurity.modal.User;
 import com.test.springBootH2CRUDSesurity.repository.UserCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String singUpForm(User user, Model model) {
+    public String singUpForm(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("users", userCrudRepository.findAll());
         return "index";
     }

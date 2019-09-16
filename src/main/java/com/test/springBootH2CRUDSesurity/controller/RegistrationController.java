@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,8 +33,10 @@ public class RegistrationController {
             return "registration";
         }
         Set<Role> roles = new HashSet<>();
+        user.setActive(true);
         roles.add(Role.USER);
         user.setRoles(roles);
+        /*user.setRoles(Collections.singleton(Role.USER));*/
         userCrudRepository.save(user);
         return "redirect:/login";
     }

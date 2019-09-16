@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringBootH2CrudSesurityApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootH2CrudSesurityApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootH2CrudSesurityApplication.class, args);
+    }
 
 }
