@@ -1,5 +1,6 @@
 package com.test.springBootH2CRUDSesurity.controller;
 
+import com.test.springBootH2CRUDSesurity.modal.Role;
 import com.test.springBootH2CRUDSesurity.modal.User;
 import com.test.springBootH2CRUDSesurity.repository.UserCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class UserController {
